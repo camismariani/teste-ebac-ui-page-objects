@@ -12,7 +12,7 @@ context('funcionalidade login',() => {
         cy.get('.woocommerce-form > .button').click()
         
         //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
+        // captura o elemento e verifica se o texto contem o que foi escrito na condição 
         cy.get('.page-title').should('contain', 'Minha conta')
     })
 
