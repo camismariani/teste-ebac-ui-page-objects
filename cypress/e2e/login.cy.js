@@ -1,14 +1,20 @@
 ///<reference types="cypress"/>
 
+// antes de cada teste
+beforeEach(() => {
+     // abrir site
+     cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+ 
+});
+  
 context('funcionalidade login',() => {
     it('deve fazer login com sucesso',() =>{
-        //abrir site
-        cy.visit(Cypress.env('url'))
-        //capturar elemento e fazer ação login e senha
-        cy.get('#username').type(Cypress.env('usuario'))
-        cy.get('#password').type(Cypress.env('password'))
+    
+        //capturar elemento, digita usuário e senha
+        cy.get('#username').type(Cypress.env('env_usuario'),{log:false})
+        cy.get('#password').type(Cypress.env('env_password'),{log:false})
 
-        //clicar no botão de entrar
+        //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
         
         //resultado
@@ -17,13 +23,12 @@ context('funcionalidade login',() => {
     })
 
     it('login com usuário inválido',() =>{
-        //abrir site
-        cy.visit(Cypress.env('url'))
-        //capturar elemento e fazer ação login e senha
-        cy.get('#username').type(Cypress.env('usuario_invalido'))
-        cy.get('#password').type(Cypress.env('password'))
+        
+        //capturar elemento, digita usuário e senha
+        cy.get('#username').type("aluno_eba@teste.com")
+        cy.get('#password').type(Cypress.env('env_password'),{log:false})
 
-        //clicar no botão de entrar
+        //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
         
         //resultado
@@ -32,13 +37,12 @@ context('funcionalidade login',() => {
     })
 
     it('login com senha inválida',() =>{
-        //abrir site
-        cy.visit(Cypress.env('url'))
-        //capturar elemento e fazer ação login e senha
-        cy.get('#username').type(Cypress.env('usuario'))
-        cy.get('#password').type(Cypress.env('password_errado'))
+       
+        //capturar elemento, digita usuário e senha
+        cy.get('#username').type(Cypress.env('env_usuario'))
+        cy.get('#password').type(Cypress.env('env_password_errado'),{log:false})
 
-        //clicar no botão de entrar
+        //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
         
         //resultado
@@ -47,13 +51,12 @@ context('funcionalidade login',() => {
     })
 
     it('usuário desconhecido',() =>{
-        //abrir site
-        cy.visit(Cypress.env('url'))
-        //capturar elemento e fazer ação login e senha
-        cy.get('#username').type(Cypress.env('usuario_desconhecido'))
-        cy.get('#password').type(Cypress.env('password'))
+       
+        //capturar elemento, digita usuário e senha
+        cy.get('#username').type(Cypress.env('env_usuario_desconhecido'))
+        cy.get('#password').type(Cypress.env('env_password'),{log:false})
 
-        //clicar no botão de entrar
+        //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
         
         //resultado
