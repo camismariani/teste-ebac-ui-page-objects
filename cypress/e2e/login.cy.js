@@ -23,7 +23,12 @@ context('funcionalidade login', () => {
         cy.get('.page-title').should('contain', 'Minha conta')
     })
 
-    it.only('Deve fazer login com sucesso - Usando massa de dados', () => {
+    it.only('Deve fazer login com sucesso - command', () => {
+        cy.login(Cypress.env('env_usuario'),Cypress.env('env_password'))
+
+    });
+
+    it('Deve fazer login com sucesso - Usando massa de dados', () => {
         //capturar elemento, digita usuário e senha
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.senha, { log: false })
