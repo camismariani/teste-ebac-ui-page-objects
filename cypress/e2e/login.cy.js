@@ -1,5 +1,6 @@
 ///<reference types="cypress"/>
 const perfil = require('../fixtures/perfil.json')
+import Login from '../support/pages/Login';
 
 // antes de cada teste
 beforeEach(() => {
@@ -9,22 +10,27 @@ beforeEach(() => {
 });
 
 context('funcionalidade login', () => {
-    it('deve fazer login com sucesso', () => {
+    it.only('deve fazer login com sucesso', () => {
 
         //capturar elemento, digita usuário e senha
-        cy.get('#username').type(Cypress.env('env_usuario'))
-        cy.get('#password').type(Cypress.env('env_password'), { log: false })
+        //cy.get('#username').type(Cypress.env('env_usuario'))
+        //cy.get('#password').type(Cypress.env('env_password'), { log: false })
+
+        Login.informarUsuario()
+        Login.informarSenha()
+        Login.submeterFormularioLogin()
+        Login.validarMsgApresentada("Minha conta")
 
         //clicar no botão de login
-        cy.get('.woocommerce-form > .button').click()
+        //cy.get('.woocommerce-form > .button').click()
 
         //resultado
         // captura o elemento e verifica se o texto contem o que foi escrito na condição
-        cy.get('.page-title').should('contain', 'Minha conta')
+       // cy.get('.page-title').should('contain', 'Minha conta')
     })
 
-    it.only('Deve fazer login com sucesso - command', () => {
-        cy.login(Cypress.env('env_usuario'),Cypress.env('env_password'))
+    it('Deve fazer login com sucesso - command', () => {
+        cy.login(Cypress.env('env_usuario'), Cypress.env('env_password'))
 
     });
 
@@ -82,5 +88,6 @@ context('funcionalidade login', () => {
         // captura o elemento e verifica se o texto contem o que foi escrito na condição
         cy.get('.woocommerce-error > li').should('contain', 'Se você não está certo de seu nome de usuário, experimente o endereço de e-mail.')
     })
+
 
 })
