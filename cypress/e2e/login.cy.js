@@ -37,23 +37,14 @@ context('funcionalidade login', () => {
         
     })
 
+
     it('usuário desconhecido', () => {
 
         Login.informarUsuario("camilamariani")
         Login.informarSenha("env_password")
         Login.submeterFormularioLogin()
-        Login.validarMsgLoginSemSucesso().should('contain',"Se você não está certo de seu nome de usuário")
+        Login.validarMsgLoginSemSucesso().should('contain',"Se você não está certo de seu nome de usuário, experimente o endereço de e-mail.")
         
     })
-
-    it('usuário desconhecido', () => {
-
-        cy.get('#username').type(Cypress.env('camilamariani'))
-        cy.get('#password').type(Cypress.env('env_password'), { log: false })
-        cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-error > li').should('contain', "Se você não está certo de seu nome de usuário")
-        
-    })
-
 
 })
