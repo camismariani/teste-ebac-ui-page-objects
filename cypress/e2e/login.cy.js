@@ -10,83 +10,49 @@ beforeEach(() => {
 });
 
 context('funcionalidade login', () => {
-    it.only('deve fazer login com sucesso', () => {
+    it('deve fazer login com sucesso', () => {
 
-        //capturar elemento, digita usuário e senha
-        //cy.get('#username').type(Cypress.env('env_usuario'))
-        //cy.get('#password').type(Cypress.env('env_password'), { log: false })
-
-        Login.informarUsuario()
-        Login.informarSenha()
+        Login.informarUsuario("aluno_ebac@teste.com")
+        Login.informarSenha("env_password")
         Login.submeterFormularioLogin()
-        Login.validarMsgApresentada("Minha conta")
+        Login.validarMsgAposLoginComSucesso().should('contain',"Minha conta")
 
-        //clicar no botão de login
-        //cy.get('.woocommerce-form > .button').click()
-
-        //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
-       // cy.get('.page-title').should('contain', 'Minha conta')
     })
 
-    it('Deve fazer login com sucesso - command', () => {
-        cy.login(Cypress.env('env_usuario'), Cypress.env('env_password'))
+    it('login com e-mail inválido', () => {
 
-    });
-
-    it('Deve fazer login com sucesso - Usando massa de dados', () => {
-        //capturar elemento, digita usuário e senha
-        cy.get('#username').type(perfil.usuario)
-        cy.get('#password').type(perfil.senha, { log: false })
-
-        //clicar no botão de login
-        cy.get('.woocommerce-form > .button').click()
-
-        //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
-        cy.get('.page-title').should('contain', 'Minha conta')
-    });
-
-    it('login com usuário inválido', () => {
-
-        //capturar elemento, digita usuário e senha
-        cy.get('#username').type("aluno_eba@teste.com")
-        cy.get('#password').type(Cypress.env('env_password'), { log: false })
-
-        //clicar no botão de login
-        cy.get('.woocommerce-form > .button').click()
-
-        //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
-        cy.get('.woocommerce-error > li').should('contain', 'Endereço de e-mail desconhecido')
+        Login.informarUsuario("aluno_eba@teste.com")
+        Login.informarSenha("env_password")
+        Login.submeterFormularioLogin()
+        Login.validarMsgLoginSemSucesso().should('contain',"Endereço de e-mail desconhecido")
+        
     })
 
-    it('login com senha inválida', () => {
+    it('login com senha inválida e e-mail correto', () => {
 
-        //capturar elemento, digita usuário e senha
-        cy.get('#username').type(Cypress.env('env_usuario'))
-        cy.get('#password').type(Cypress.env('env_password_errado'), { log: false })
-
-        //clicar no botão de login
-        cy.get('.woocommerce-form > .button').click()
-
-        //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
-        cy.get('.woocommerce-error > li').should('contain', 'stá incorreta. Perdeu a senha?')
+        Login.informarUsuario("aluno_ebac@teste.com")
+        Login.informarSenha("env_password_errado")
+        Login.submeterFormularioLogin()
+        Login.validarMsgLoginSemSucesso().should('contain',"stá incorreta. Perdeu a senha?")
+        
     })
 
     it('usuário desconhecido', () => {
 
-        //capturar elemento, digita usuário e senha
-        cy.get('#username').type(Cypress.env('env_usuario_desconhecido'))
+        Login.informarUsuario("camilamariani")
+        Login.informarSenha("env_password")
+        Login.submeterFormularioLogin()
+        Login.validarMsgLoginSemSucesso().should('contain',"Se você não está certo de seu nome de usuário")
+        
+    })
+
+    it('usuário desconhecido', () => {
+
+        cy.get('#username').type(Cypress.env('camilamariani'))
         cy.get('#password').type(Cypress.env('env_password'), { log: false })
-
-        //clicar no botão de login
         cy.get('.woocommerce-form > .button').click()
-
-        //resultado
-        // captura o elemento e verifica se o texto contem o que foi escrito na condição
-        cy.get('.woocommerce-error > li').should('contain', 'Se você não está certo de seu nome de usuário, experimente o endereço de e-mail.')
+        cy.get('.woocommerce-error > li').should('contain', "Se você não está certo de seu nome de usuário")
+        
     })
 
 

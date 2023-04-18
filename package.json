@@ -1,5 +1,5 @@
 {
-  "name": "teste-ebac-ui",
+  "name": "teste-ebac-ui-page-objects",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/camismariani/teste-ebac-ui.git"
+    "url": "git+https://github.com/camismariani/teste-ebac-ui-page-objects.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/camismariani/teste-ebac-ui/issues"
+    "url": "https://github.com/camismariani/teste-ebac-ui-page-objects/issues"
   },
-  "homepage": "https://github.com/camismariani/teste-ebac-ui#readme",
+  "homepage": "https://github.com/camismariani/teste-ebac-ui-page-objects#readme",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "cypress": "^12.9.0"
