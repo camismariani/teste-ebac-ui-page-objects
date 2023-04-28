@@ -19,6 +19,6 @@
   "homepage": "https://github.com/camismariani/teste-ebac-ui-page-objects#readme",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.9.0"
+    "cypress": "^12.11.0"
   }
 }

@@ -25,7 +25,7 @@ context('funcionalidade login', () => {
         Login.informarSenha("env_password")
         Login.submeterFormularioLogin()
         Login.validarMsgLoginSemSucesso().should('contain',"Endereço de e-mail desconhecido")
-        
+          
     })
 
     it('login com senha inválida e e-mail correto', () => {
