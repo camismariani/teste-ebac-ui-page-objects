@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 context('funcionalidade login', () => {
-    it('deve fazer login com sucesso', () => {
+    it.only('deve fazer login com sucesso', () => {
 
         Login.informarUsuario("aluno_ebac@teste.com")
         Login.informarSenha("env_password")

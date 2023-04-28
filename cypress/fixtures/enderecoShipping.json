@@ -1,0 +1,34 @@
+[
+{
+    "nome": "Ana",
+    "sobrenome":"Silva" ,
+    "pais":"Brasil",
+    "endereco":"Rua EBAC" ,
+    "numero":"42",
+    "cidade":"São Paulo",
+    "estado":"Bahia",
+    "cep":"88888-888"
+},
+
+{
+    "nome": "Mario",
+    "sobrenome":"Silva" ,
+    "pais":"Brasil",
+    "endereco":"Rua EBAC 1" ,
+    "numero":"50",
+    "cidade":"Teresópolis",
+    "estado":"Acre",
+    "cep":"88888-888"
+},
+
+{
+    "nome": "Paulo",
+    "sobrenome":"Brandão" ,
+    "pais":"Brasil",
+    "endereco":"Rua EBAC 3" ,
+    "numero":"1883",
+    "cidade":"Feira de Santana",
+    "estado":"Rio de Janeiro",
+    "cep":"88888-888"
+}
+]

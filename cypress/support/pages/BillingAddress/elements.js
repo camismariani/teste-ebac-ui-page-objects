@@ -10,5 +10,5 @@ export const ELEMENTS={
     cep:'#billing_postcode',
     telefone:'#billing_phone',
     email:'#billing_email',
-    btnSalvarFormularioEdicao: '.button'
+    btnSalvarFormularioEdicaoBilling: ':nth-child(2) > .button'
 }

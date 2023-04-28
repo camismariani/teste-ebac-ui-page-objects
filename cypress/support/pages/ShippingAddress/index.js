@@ -1,9 +1,9 @@
-
 const { faker } = require('@faker-js/faker');
 const elemento = require('./elements').ELEMENTS
 
-class BillingAdressPage{
-    editarDadosPessoais(nome,sobrenome,pais,endereco,numero,cidade,estado,cep,telefone){
+class ShippingAddressPage{
+
+    editarDadosPessoaisShippingAddress(nome,sobrenome,pais,endereco,numero,cidade,estado,cep){
 
         cy.get(elemento.nome).clear().type(nome)
         cy.get(elemento.sobrenome).clear().type(sobrenome)
@@ -13,15 +13,14 @@ class BillingAdressPage{
         cy.get(elemento.cidade).clear().type(cidade)
         cy.get(elemento.estado).click().type( estado+'{enter}')
         cy.get(elemento.cep).clear().type(cep)
-        cy.get(elemento.telefone).clear().type(telefone)
-        cy.get(elemento.email).clear().type(faker.internet.email())
 
     }
 
-    submeterFormularioEdicaoBilling(){
-        cy.get(elemento.btnSalvarFormularioEdicaoBilling).click()
+    submeterFormularioEdicaoShipping(){
+        cy.get(elemento.btnSalvarFormularioEdicaoShipping).click()
     }
+
 
 }
 
-export default new BillingAdressPage()
+export default new ShippingAddressPage()
